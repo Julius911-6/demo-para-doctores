@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedVita Clínica Integral | DEMOSTRACIÓN</title>
+    <meta name="description" content="MedVita — Demo de sitio web para clínica médica de clase mundial.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./clinic-styles.css">
+</head>
+<body>
+
+    <!-- ══ DEMO BADGE ══════════════════════════════════ -->
+    <div class="demo-bar">
+        <span class="demo-dot"></span>
+        SITIO DE DEMOSTRACIÓN — Ningún dato real será procesado
+    </div>
+
+    <!-- ══ NAVBAR ══════════════════════════════════════ -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="#" onclick="goToPanel(0); return false;">
+                <div class="logo-cross">
+                    <svg viewBox="0 0 36 36" fill="none">
+                        <circle cx="18" cy="18" r="17" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M18 9v18M9 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="logo-name">MedVita</span>
+                    <span class="logo-tagline">Clínica Integral</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="goToPanel(0);return false;">Inicio</a></li>
+                <li><a href="#" onclick="goToPanel(1);return false;">Nosotros</a></li>
+                <li><a href="#" onclick="goToPanel(2);return false;">Equipo</a></li>
+                <li><a href="#" onclick="goToPanel(3);return false;">Servicios</a></li>
+                <li><a href="#" onclick="goToPanel(4);return false;">Tecnología</a></li>
+                <li><a href="#" onclick="goToPanel(5);return false;">Testimonios</a></li>
+            </ul>
+            <button class="btn-cta-nav" onclick="goToPanel(6)">Agendar Cita</button>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#" onclick="goToPanel(0);closeMobile();return false;">Inicio</a>
+            <a href="#" onclick="goToPanel(1);closeMobile();return false;">Nosotros</a>
+            <a href="#" onclick="goToPanel(2);closeMobile();return false;">Equipo Médico</a>
+            <a href="#" onclick="goToPanel(3);closeMobile();return false;">Servicios</a>
+            <a href="#" onclick="goToPanel(4);closeMobile();return false;">Tecnología</a>
+            <a href="#" onclick="goToPanel(5);closeMobile();return false;">Testimonios</a>
+            <a href="#" onclick="goToPanel(6);closeMobile();return false;" class="mobile-cta">Agendar Cita</a>
+        </div>
+    </nav>
+
+    <!-- ══ SIDE NAVIGATION DOTS ════════════════════════ -->
+    <nav class="side-nav" id="side-nav">
+        <button class="side-dot active" onclick="goToPanel(0)" title="Inicio"><span class="dot-label">Inicio</span></button>
+        <button class="side-dot" onclick="goToPanel(1)" title="Nosotros"><span class="dot-label">Nosotros</span></button>
+        <button class="side-dot" onclick="goToPanel(2)" title="Equipo"><span class="dot-label">Equipo Médico</span></button>
+        <button class="side-dot" onclick="goToPanel(3)" title="Servicios"><span class="dot-label">Servicios</span></button>
+        <button class="side-dot" onclick="goToPanel(4)" title="Tecnología"><span class="dot-label">Tecnología</span></button>
+        <button class="side-dot" onclick="goToPanel(5)" title="Testimonios"><span class="dot-label">Testimonios</span></button>
+        <button class="side-dot" onclick="goToPanel(6)" title="Contacto"><span class="dot-label">Contacto</span></button>
+    </nav>
+
+    <!-- ══ ARROWS ═══════════════════════════════════════ -->
+    <div class="nav-arrows">
+        <button class="arrow-btn" id="arrow-up" onclick="prevPanel()" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+        </button>
+        <button class="arrow-btn" id="arrow-down" onclick="nextPanel()" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+    </div>
+
+    <!-- ══ PANEL COUNTER ════════════════════════════════ -->
+    <div class="panel-counter" id="panel-counter">
+        <span id="current-panel">01</span>
+        <span class="counter-sep"></span>
+        <span class="total-panels">07</span>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════
+         PANELS
+    ══════════════════════════════════════════════════════ -->
+
+    <!-- PANEL 0 — INICIO ─────────────────────────────── -->
+    <section class="panel active" id="panel-0" data-index="0">
+        <div class="panel-bg">
+            <img src="C:\Users\Usuario\.gemini\antigravity\brain\1a111b8f-a046-447d-ab9a-735ca48de40e\clinic_hero_1782169511619.png" alt="MedVita Clínica" class="bg-img" id="hero-img">
+            <div class="bg-overlay"></div>
+        </div>
+        <div class="panel-content center-content">
+            <div class="hero-eyebrow animate-item">
+                <span class="pulse-dot"></span>
+                Aceptando Nuevos Pacientes · 2026
+            </div>
+            <h1 class="hero-title animate-item d1">
+                Medicina de <em>Excelencia</em><br>al Alcance de Tu Vida.
+            </h1>
+            <p class="hero-sub animate-item d2">
+                Combinamos la tecnología diagnóstica más avanzada con la<br>calidez humana para atención médica que transforma vidas.
+            </p>
+            <div class="hero-btns animate-item d3">
+                <button class="btn-primary" onclick="goToPanel(6)">Agendar Mi Cita</button>
+                <button class="btn-ghost" onclick="goToPanel(3)">
+                    <span class="play-circle">▶</span> Ver Servicios
+                </button>
+            </div>
+            <div class="hero-stats animate-item d4">
+                <div class="hstat">
+                    <span class="hstat-num" data-target="20000">0</span><sup>+</sup>
+                    <span>Pacientes</span>
+                </div>
+                <div class="hstat-sep"></div>
+                <div class="hstat">
+                    <span class="hstat-num" data-target="35">0</span><sup>+</sup>
+                    <span>Especialistas</span>
+                </div>
+                <div class="hstat-sep"></div>
+                <div class="hstat">
+                    <span class="hstat-num" data-target="15">0</span><sup>+</sup>
+                    <span>Años</span>
+                </div>
+                <div class="hstat-sep"></div>
+                <div class="hstat">
+                    <span class="hstat-num" data-target="98">0</span><sup>%</sup>
+                    <span>Satisfacción</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint animate-item d4">
+            <div class="mouse-icon"></div>
+            <span>Desplazar</span>
+        </div>
+    </section>
+
+    <!-- PANEL 1 — NOSOTROS ───────────────────────────── -->
+    <section class="panel" id="panel-1" data-index="1">
+        <div class="panel-bg solid-bg bg-white"></div>
+        <div class="panel-content two-col-layout">
+            <div class="col-image animate-item">
+                <div class="img-frame">
+                    <img src="C:\Users\Usuario\.gemini\antigravity\brain\1a111b8f-a046-447d-ab9a-735ca48de40e\clinic_room_1782169539515.png" alt="Habitación VIP MedVita">
+                    <div class="img-badge">
+                        <svg viewBox="0 0 24 24" fill="#fbbf24" width="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <div>Atención <strong>5 Estrellas</strong></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-text animate-item d1">
+                <div class="section-eyebrow">Quiénes Somos</div>
+                <h2 class="section-title">Más de 15 Años <em>Transformando</em> la Salud.</h2>
+                <p class="body-p">Fundada en 2010, MedVita nació con una visión clara: brindar acceso a medicina de primer mundo donde cada paciente sea tratado con la dignidad y precisión que merece.</p>
+                <p class="body-p">Esta es una página de demostración. En A R X creemos en la fusión de los mejores protocolos internacionales con una atención cálida y personalizada.</p>
+                <div class="pillars">
+                    <div class="pillar">
+                        <div class="pillar-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div><h4>Diagnóstico Preciso</h4><p>Tecnología de imagen de última generación.</p></div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon rose">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <div><h4>Trato Humano</h4><p>Empatía y escucha activa en cada consulta.</p></div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div><h4>Urgencias 24/7</h4><p>Siempre disponibles cuando más nos necesitas.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 2 — EQUIPO ─────────────────────────────── -->
+    <section class="panel" id="panel-2" data-index="2">
+        <div class="panel-bg solid-bg bg-dark"></div>
+        <div class="panel-content full-content">
+            <div class="section-header-block animate-item">
+                <div class="section-eyebrow light">Nuestro Equipo</div>
+                <h2 class="section-title light">Especialistas de <em>Talla Internacional</em></h2>
+            </div>
+            <div class="doctors-grid animate-item d1">
+                <!-- Dr 1 -->
+                <div class="doctor-card">
+                    <div class="doc-photo">
+                        <img src="C:\Users\Usuario\.gemini\antigravity\brain\1a111b8f-a046-447d-ab9a-735ca48de40e\clinic_doctor_1782169521810.png" alt="Dra. Elena Vargas">
+                        <div class="doc-role-badge">Directora Médica</div>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dra. Elena Vargas</h3>
+                        <span class="doc-spec">Cardiología Intervencionista</span>
+                        <p>18 años de experiencia. Formada en Johns Hopkins University. Pionera en cirugía cardíaca mínimamente invasiva en Centroamérica.</p>
+                        <div class="doc-tags"><span>Johns Hopkins</span><span>Fellow ACC</span><span>500+ cirugías</span></div>
+                    </div>
+                </div>
+                <!-- Dr 2 -->
+                <div class="doctor-card">
+                    <div class="doc-photo placeholder-photo blue-grad">
+                        <div class="initials">AM</div>
+                        <div class="doc-role-badge">Jefe de Neurología</div>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dr. Alejandro Mora</h3>
+                        <span class="doc-spec">Neurología Clínica</span>
+                        <p>Especialista en epilepsia y cefaleas. Formado en la Universidad de Barcelona. Más de 2,000 pacientes neurológicos tratados.</p>
+                        <div class="doc-tags"><span>Univ. Barcelona</span><span>Board Certified</span><span>14 años exp.</span></div>
+                    </div>
+                </div>
+                <!-- Dr 3 -->
+                <div class="doctor-card">
+                    <div class="doc-photo placeholder-photo purple-grad">
+                        <div class="initials">SC</div>
+                        <div class="doc-role-badge">Oncología</div>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dra. Sofía Chen</h3>
+                        <span class="doc-spec">Oncología Médica</span>
+                        <p>Pionera en inmunoterapia regional. Harvard Medical School. Más de 500 casos de remisión documentados.</p>
+                        <div class="doc-tags"><span>Harvard</span><span>ESMO Certified</span><span>12 pub. científicas</span></div>
+                    </div>
+                </div>
+                <!-- Dr 4 -->
+                <div class="doctor-card">
+                    <div class="doc-photo placeholder-photo teal-grad">
+                        <div class="initials">RF</div>
+                        <div class="doc-role-badge">Cirugía Robótica</div>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dr. Ricardo Fuentes</h3>
+                        <span class="doc-spec">Cirugía Robótica Da Vinci</span>
+                        <p>Único cirujano robótico certificado Da Vinci Xi en la región. Formado en Mayo Clinic. 300+ procedimientos robóticos.</p>
+                        <div class="doc-tags"><span>Mayo Clinic</span><span>Da Vinci Certified</span><span>FACS</span></div>
+                    </div>
+                </div>
+                <!-- Dr 5 -->
+                <div class="doctor-card">
+                    <div class="doc-photo placeholder-photo amber-grad">
+                        <div class="initials">IR</div>
+                        <div class="doc-role-badge">Pediatría</div>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dra. Isabella Romero</h3>
+                        <span class="doc-spec">Pediatría & Neonatología</span>
+                        <p>Especialista en cuidado intensivo neonatal. Formada en Hospital Universitario La Paz, Madrid. Referente en pediatría compleja.</p>
+                        <div class="doc-tags"><span>La Paz Madrid</span><span>UCI Neonatal</span><span>20 años exp.</span></div>
+                    </div>
+                </div>
+                <!-- Dr 6 -->
+                <div class="doctor-card">
+                    <div class="doc-photo placeholder-photo indigo-grad">
+                        <div class="initials">MH</div>
+                        <div class="doc-role-badge">Geriatría</div>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dr. Marcos Heredia</h3>
+                        <span class="doc-spec">Geriatría & Medicina Interna</span>
+                        <p>Especialista en envejecimiento saludable y enfermedades crónicas en adultos mayores. Formado en Universidad de Chile y NYU.</p>
+                        <div class="doc-tags"><span>NYU</span><span>U. de Chile</span><span>Internista</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 3 — SERVICIOS ──────────────────────────── -->
+    <section class="panel" id="panel-3" data-index="3">
+        <div class="panel-bg solid-bg bg-light"></div>
+        <div class="panel-content full-content">
+            <div class="section-header-block animate-item">
+                <div class="section-eyebrow">Especialidades</div>
+                <h2 class="section-title">Servicios de <em>Clase Mundial</em></h2>
+            </div>
+            <div class="services-grid animate-item d1">
+                <div class="srv-card" style="--clr:#0ea5e9">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3>Cardiología</h3>
+                    <p>Diagnóstico y tratamiento integral de enfermedades cardiovasculares con ecocardiografía avanzada.</p>
+                    <span class="srv-num">01</span>
+                </div>
+                <div class="srv-card" style="--clr:#8b5cf6">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Neurología</h3>
+                    <p>Evaluación del sistema nervioso central con neuroimagen 3 Tesla de última generación.</p>
+                    <span class="srv-num">02</span>
+                </div>
+                <div class="srv-card" style="--clr:#f59e0b">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197"/></svg>
+                    </div>
+                    <h3>Pediatría</h3>
+                    <p>Atención especializada en crecimiento, desarrollo y enfermedades pediátricas.</p>
+                    <span class="srv-num">03</span>
+                </div>
+                <div class="srv-card" style="--clr:#ef4444">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                    </div>
+                    <h3>Oncología</h3>
+                    <p>Diagnóstico temprano y tratamiento multidisciplinario del cáncer con protocolos internacionales.</p>
+                    <span class="srv-num">04</span>
+                </div>
+                <div class="srv-card" style="--clr:#10b981">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    </div>
+                    <h3>Oftalmología</h3>
+                    <p>Cirugía LASIK, cataratas y glaucoma con tecnología de punta certificada.</p>
+                    <span class="srv-num">05</span>
+                </div>
+                <div class="srv-card" style="--clr:#06b6d4">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </div>
+                    <h3>Chequeo Ejecutivo</h3>
+                    <p>80+ parámetros de salud evaluados en un solo día. Prevención personalizada de alto nivel.</p>
+                    <span class="srv-num">06</span>
+                </div>
+                <div class="srv-card" style="--clr:#ec4899">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <h3>Hospitalización VIP</h3>
+                    <p>Habitaciones privadas de lujo con amenidades de hotel 5 estrellas y monitoreo continuo.</p>
+                    <span class="srv-num">07</span>
+                </div>
+                <div class="srv-card" style="--clr:#f97316">
+                    <div class="srv-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    </div>
+                    <h3>Cirugía Robótica</h3>
+                    <p>Sistema Da Vinci Xi — el único en la región — para procedimientos de mínima invasión.</p>
+                    <span class="srv-num">08</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 4 — TECNOLOGÍA ─────────────────────────── -->
+    <section class="panel" id="panel-4" data-index="4">
+        <div class="panel-bg solid-bg bg-white"></div>
+        <div class="panel-content two-col-layout reverse">
+            <div class="col-text animate-item">
+                <div class="section-eyebrow">Infraestructura</div>
+                <h2 class="section-title">El <em>Futuro</em> de la Medicina, Hoy.</h2>
+                <p class="body-p">Nuestro departamento de diagnóstico por imagen cuenta con la tecnología más avanzada disponible a nivel mundial, garantizando resultados precisos y rápidos.</p>
+                <div class="tech-list">
+                    <div class="tech-item"><span class="tech-check">✓</span> Resonancia Magnética 3 Tesla</div>
+                    <div class="tech-item"><span class="tech-check">✓</span> Tomografía PET-CT de última generación</div>
+                    <div class="tech-item"><span class="tech-check">✓</span> Robot Quirúrgico Da Vinci Xi</div>
+                    <div class="tech-item"><span class="tech-check">✓</span> Laboratorio clínico automatizado 24/7</div>
+                    <div class="tech-item"><span class="tech-check">✓</span> Historia Clínica Electrónica integrada</div>
+                    <div class="tech-item"><span class="tech-check">✓</span> Teleconsulta y monitoreo remoto</div>
+                    <div class="tech-item"><span class="tech-check">✓</span> Análisis genómico y medicina de precisión</div>
+                    <div class="tech-item"><span class="tech-check">✓</span> UCI con tecnología de última generación</div>
+                </div>
+                <div class="tech-badge-row">
+                    <div class="tech-badge">
+                        <span class="tbadge-num">99.7%</span>
+                        <span class="tbadge-lbl">Precisión Diagnóstica</span>
+                    </div>
+                    <div class="tech-badge">
+                        <span class="tbadge-num">JCI</span>
+                        <span class="tbadge-lbl">Acreditación Internacional</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-image animate-item d1">
+                <div class="img-frame">
+                    <img src="C:\Users\Usuario\.gemini\antigravity\brain\1a111b8f-a046-447d-ab9a-735ca48de40e\clinic_lab_1782169530299.png" alt="Laboratorio MedVita">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 5 — TESTIMONIOS ───────────────────────── -->
+    <section class="panel" id="panel-5" data-index="5">
+        <div class="panel-bg solid-bg bg-dark"></div>
+        <div class="panel-content full-content">
+            <div class="section-header-block animate-item">
+                <div class="section-eyebrow light">Historias Reales</div>
+                <h2 class="section-title light">Lo Que Dicen <em>Nuestros Pacientes</em></h2>
+            </div>
+            <div class="testimonials-grid animate-item d1">
+                <div class="tcard">
+                    <div class="tcard-quote">"</div>
+                    <p>"El nivel de atención es incomparable. El Dr. Mora diagnosticó en días lo que otros médicos no pudieron encontrar en meses. Le debo mi recuperación."</p>
+                    <div class="tcard-person">
+                        <div class="tcard-avatar" style="background:linear-gradient(135deg,#0ea5e9,#0369a1)">MR</div>
+                        <div><strong>Mario Rodríguez</strong><span>Neurología · Paciente desde 2022</span></div>
+                        <div class="tcard-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="tcard featured-tcard">
+                    <div class="tcard-quote">"</div>
+                    <p>"Vine de otro país especialmente para mi cirugía cardíaca. El equipo de la Dra. Vargas es de un profesionalismo y calidez extraordinarios. Las instalaciones son de nivel europeo."</p>
+                    <div class="tcard-person">
+                        <div class="tcard-avatar" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">LC</div>
+                        <div><strong>Laura Castillo</strong><span>Cardiología · Paciente Internacional</span></div>
+                        <div class="tcard-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="tcard">
+                    <div class="tcard-quote">"</div>
+                    <p>"El chequeo ejecutivo fue la mejor inversión en mi salud. Detectaron a tiempo una condición que nunca hubiera imaginado. Hoy gozo de plena salud."</p>
+                    <div class="tcard-person">
+                        <div class="tcard-avatar" style="background:linear-gradient(135deg,#10b981,#059669)">AP</div>
+                        <div><strong>Andrés Pérez</strong><span>Chequeo Ejecutivo · 2024</span></div>
+                        <div class="tcard-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="tcard">
+                    <div class="tcard-quote">"</div>
+                    <p>"Mi hija recibió atención pediátrica de la Dra. Romero que superó toda expectativa. Nos trataron como familia. Esta clínica es oro puro."</p>
+                    <div class="tcard-person">
+                        <div class="tcard-avatar" style="background:linear-gradient(135deg,#ec4899,#be185d)">CG</div>
+                        <div><strong>Carmen González</strong><span>Pediatría · Madre de Paciente</span></div>
+                        <div class="tcard-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="tcard">
+                    <div class="tcard-quote">"</div>
+                    <p>"La cirugía robótica con el Dr. Fuentes fue increíble. Recuperación de 2 días en lugar de 3 semanas. Tecnología que simplemente no existe en otros hospitales."</p>
+                    <div class="tcard-person">
+                        <div class="tcard-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">JM</div>
+                        <div><strong>José Martínez</strong><span>Cirugía Robótica · 2025</span></div>
+                        <div class="tcard-stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="tcard">
+                    <div class="tcard-quote">"</div>
+                    <p>"La Dra. Chen logró lo que considerábamos imposible. Después del protocolo de inmunoterapia, el tumor desapareció. Estoy vivo gracias a MedVita."</p>
+                    <div class="tcard-person">
+                        <div class="tcard-avatar" style="background:linear-gradient(135deg,#06b6d4,#0e7490)">RV</div>
+                        <div><strong>Roberto Vega</strong><span>Oncología · Paciente en Remisión</span></div>
+                        <div class="tcard-stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 6 — CONTACTO ───────────────────────────── -->
+    <section class="panel" id="panel-6" data-index="6">
+        <div class="panel-bg solid-bg bg-light"></div>
+        <div class="panel-content two-col-layout">
+            <div class="col-text animate-item">
+                <div class="section-eyebrow">Agenda Tu Cita</div>
+                <h2 class="section-title">Tu Salud No <em>Puede Esperar.</em></h2>
+                <p class="body-p">Nuestro equipo responderá en menos de 2 horas para confirmar tu cita. Esta es una demostración — no se enviarán datos reales.</p>
+                <div class="contact-cards">
+                    <div class="ccard">
+                        <div class="ccard-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 15.28V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <div><h4>Teléfono & WhatsApp</h4><p>+1 (555) 900-VITA</p></div>
+                    </div>
+                    <div class="ccard">
+                        <div class="ccard-icon teal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div><h4>Correo</h4><p>citas@medvita-demo.com</p></div>
+                    </div>
+                    <div class="ccard">
+                        <div class="ccard-icon rose">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div><h4>Ubicación</h4><p>Av. Salud 500, Torre Médica<br>Ciudad Demo, CP 10200</p></div>
+                    </div>
+                    <div class="ccard">
+                        <div class="ccard-icon amber">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div><h4>Horarios</h4><p>Lun–Vie 7am–8pm · Urgencias 24/7</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-form animate-item d1">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h3>Solicitar Cita</h3>
+                        <span class="demo-form-tag">DEMO</span>
+                    </div>
+                    <form id="apt-form" onsubmit="submitForm(event)">
+                        <div class="frow">
+                            <div class="fgroup">
+                                <label for="f-name">Nombre Completo</label>
+                                <input type="text" id="f-name" placeholder="Ej. María García" required>
+                            </div>
+                            <div class="fgroup">
+                                <label for="f-phone">Teléfono</label>
+                                <input type="tel" id="f-phone" placeholder="+1 555 000 000" required>
+                            </div>
+                        </div>
+                        <div class="fgroup">
+                            <label for="f-email">Correo Electrónico</label>
+                            <input type="email" id="f-email" placeholder="tucorreo@ejemplo.com" required>
+                        </div>
+                        <div class="frow">
+                            <div class="fgroup">
+                                <label for="f-spec">Especialidad</label>
+                                <select id="f-spec" required>
+                                    <option value="" disabled selected>Seleccionar…</option>
+                                    <option>Cardiología</option>
+                                    <option>Neurología</option>
+                                    <option>Pediatría</option>
+                                    <option>Oncología</option>
+                                    <option>Oftalmología</option>
+                                    <option>Cirugía Robótica</option>
+                                    <option>Chequeo Ejecutivo</option>
+                                    <option>Medicina General</option>
+                                </select>
+                            </div>
+                            <div class="fgroup">
+                                <label for="f-date">Fecha Preferida</label>
+                                <input type="date" id="f-date" required>
+                            </div>
+                        </div>
+                        <div class="fgroup">
+                            <label for="f-notes">Motivo de Consulta</label>
+                            <textarea id="f-notes" rows="3" placeholder="Describe brevemente tus síntomas…"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" id="submit-btn">
+                            <span id="btn-text">Confirmar Solicitud</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Footer row -->
+        <div class="footer-strip">
+            <span>© 2026 MedVita Clínica Integral · <strong>Demostración</strong></span>
+            <span>Diseñado con ❤️ para propósitos ilustrativos</span>
+        </div>
+    </section>
+
+    <!-- ══ SUCCESS TOAST ══════════════════════════════ -->
+    <div class="toast" id="toast">
+        <span class="toast-ico">✓</span>
+        <div><strong>¡Solicitud Enviada!</strong><p>Solo una demostración — no se procesó ningún dato.</p></div>
+    </div>
+
+    <script src="./clinic-script.js"></script>
+</body>
+</html>
